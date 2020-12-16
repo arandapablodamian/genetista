@@ -1,0 +1,40 @@
+easy_admin:
+    entities:
+        Result:
+            class: App\Entity\Result
+            disabled_actions: [delete', 'new']
+            list:
+                dql_filter: "entity.gene is not null and entity.gene != '' and entity.gene != 'Gen' "
+                title: "Información(para procesamiento automático)"
+                fields:
+                    - { property: 'id', label: 'ID' }
+                    - { property: 'type', label: 'result_ea.form.type'  }
+                    - { property: 'gene', label: 'result_ea.form.gene'  }
+                    - { property: 'marker', label: 'result_ea.form.marker'  }
+                    - { property: 'genotype', label: 'result_ea.form.genotype'  }
+                    - { property: 'result', label: 'result_ea.form.result'  }
+                    - { property: 'descriptiveResult', label: 'result_ea.form.descriptiveResult'  }
+                    - { property: 'Biography', label: 'result_ea.form.Biography'  }
+                    - { property: 'note', label: 'result_ea.form.note'  }
+            form:
+                # title: "Nuevo template de reporte"
+                fields:
+                    - { property: 'type', label: 'result_ea.form.type'  }
+                    - { property: 'gene', label: 'result_ea.form.gene'  }
+                    - { property: 'marker', label: 'result_ea.form.marker'  }
+                    - { property: 'genotype', label: 'result_ea.form.genotype'  }
+                    - { property: 'result', label: 'result_ea.form.result'  }
+                    - { property: 'descriptiveResult', label: 'result_ea.form.descriptiveResult'  }
+                    - { property: 'Biography', label: 'result_ea.form.Biography'  }
+                    - { property: 'note', label: 'result_ea.form.note'  }
+            show:
+                fields:
+                    - { property: 'id', label: 'ID' }
+                    - { property: 'type', label: 'result_ea.form.type'  }
+                    - { property: 'gene', label: 'result_ea.form.gene'  }
+                    - { property: 'marker', label: 'result_ea.form.marker'  }
+                    - { property: 'genotype', label: 'result_ea.form.genotype'  }
+                    - { property: 'result', label: 'result_ea.form.result'  }
+                    - { property: 'descriptiveResult', label: 'result_ea.form.descriptiveResult'  }
+                    - { property: 'Biography', label: 'result_ea.form.Biography'  }
+                    - { property: 'note', label: 'result_ea.form.note'  }

@@ -1,0 +1,49 @@
+easy_admin:
+    entities:
+        Section:
+            class: App\Entity\Section
+            list:
+                actions:
+                    - { name: 'new', label: 'Nueva Sección'}
+                title: "Secciones"
+                fields:
+                    - { property: 'id', label: 'ID' }
+                    - { property: 'title', label: 'Título' }
+                    - { property: 'subsections', label: 'Subsecciones' }
+                    -   
+                        property: 'path'
+                        label: 'section_ea.form.icon'
+                        type: 'image'
+                        base_path: '%app.path.proyect%%app.path.images_section%'
+
+            form:
+                title: "Nuevo template de Sección"
+                fields:
+                    - 
+                        property: 'title'
+                        label: 'Titulo'
+                    -
+                        property: 'subsections'
+                        label: 'Subsecciones'
+                    -
+                        property: 'file'
+                        type: 'vich_image'
+                        label: 'section_ea.form.icon'
+                        css_class: 'col-md-12' 
+            show:
+                title: '%%entity_label%% - (#%%entity_id%%)'
+                fields:
+                    - { property: 'id', label: 'ID' }
+                    - 
+                        property: 'title'
+                        label: 'Titulo'                      
+                    - 
+                        property: 'subsections'
+                        label: 'Subsecciones'
+                    -   
+                        property: 'path'
+                        label: 'section_ea.form.icon'
+                        type: 'image'
+                        base_path: '%app.path.proyect%%app.path.images_section%'
+
+

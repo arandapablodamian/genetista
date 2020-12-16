@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% trans %}Login{% endtrans %}{% endblock %}
+
+{% block body %}
+    <div class="container" style="height:100vh"> 
+        <div class="row align-items-center h-100">
+            <div class="col-12 col-md-6 col-xl-4 mx-auto" >
+                <div class="card" style="border-radius: 5px; overflow: hidden">
+                    <div style="background-color:  #004054; padding:1rem; text-align: center;">
+                        <img style="width: 50%" class="card-img-top" src="{{asset('assets/img/logo-transparent.png')}}" alt="logo">
+                    </div>
+                    <div class="card-body">
+                        
+                        <form method="post" class="form-init">
+                            {% if error %}
+                                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData) }}</div>
+                            {% endif %}
+                    
+                            {% if app.user %}
+                                <div class="mb-3">
+                                    {{ 'You are logged in as'|trans }} {{ app.user.username }}, <a href="{{ path('app_logout') }}">{{ 'Log out'|trans }}</a>
+                                </div>
+                            {% endif %}
+                    
+                            <div class="form-group has-icon"><i class="icon-envelope-o"></i>
+                                <input type="username" value="{{ last_username }}" name="username" id="inputEmail" class="form-control form-control-lg" required autofocus
+                                    placeholder="{{'Username'|trans}}">
+                            </div>
+                            <div class="form-group has-icon"><i class="icon-user-secret"></i>
+                                <input id="password-field" type="password" name="password" id="inputPassword" class="form-control form-control-lg" required
+                                    placeholder="{{'Password'|trans}}">
+                                <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                            </div>
+                    
+                            <input type="hidden" name="_csrf_token"
+                                value="{{ csrf_token('authenticate') }}"
+                            >
+                    
+                            {#
+                                Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                                See https://symfony.com/doc/current/security/remember_me.html
+                            |#}
+
+                            <div class="mt-5">
+                            <button class="btn btn-primary btn-lg btn-block" type="submit">
+                                {{'Login'|trans}}
+                            </button>
+                            <a href="{{path('app_forgot_password_request')}}" class="btn btn-info btn-lg btn-block">
+                                {{'Forget my password'|trans}}
+                            </a>
+                            
+                            </div>
+
+                            {# <p><a href="#">{% trans %}Did you forget your password?{% endtrans %}</a></p> #}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        $(".toggle-password").click(function() {
+
+        $(this).toggleClass("fa-eye fa-eye-slash");
+            var input = $($(this).attr("toggle"));
+            if (input.attr("type") == "password") {
+                input.attr("type", "text");
+            } else {
+                input.attr("type", "password");
+            }
+        });
+    </script>
+{% endblock %}

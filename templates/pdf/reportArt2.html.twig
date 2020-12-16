@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+		<style>
+			@font-face {
+				font-family: "keepcalm";
+				src: url('{{absolute_url(asset('assets/css/fonts/KeepCalm-Medium.ttf'))}}');
+				font-weight: normal;
+	    		font-style: normal;
+			}
+			@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+			@page {
+				margin: 100px 0;
+			}
+			header {
+				position: fixed;
+				top: -60px;
+				left: 0;
+				right: 0;
+			}
+			
+			p {
+				page-break-after: always;
+			}
+			p:last-child {
+				page-break-after: never;
+			}
+
+			.fc8 {
+				background-color: rgb(254, 169, 0);
+			}
+			.fc9 {
+				background-color: rgb(75, 119, 180);
+			}
+			.fc7 {
+				background-color: rgb(45, 171, 226);
+			}
+			.fc6 {
+				color: rgb(88, 88, 90);
+			}
+			.fc5 {
+				color: rgb(59, 59, 59);
+			}
+			.fc4 {
+				background-color: #e3e3e3;
+				padding: 0 60px;
+			}
+
+			.fc0 {
+				color: rgb(96, 96, 96);
+			}
+			.fc1 {
+				color: rgb(53, 53, 53);
+			}
+			.fc2 {
+				background-color: rgb(255, 255, 255);
+			}
+			.fc3 {
+				color: rgb(0, 0, 0);
+			}
+			.fc10 {
+				color: #525252;
+			}
+			.fc11 {
+				color: #353535;
+			}
+			.fc12 {
+				color: #606060;
+			}
+			.result {
+				background-color: #a9ee3b;
+				border-radius: 1px;
+				color: white;
+				text-align: center;
+				display: inline-block;
+				font-size: 20px;
+				border-radius: 0 0 30px 30px;
+				height: 40px;
+				width:200px;
+				line-height: 40px;
+			}
+			.right {
+				display: inline-block;
+
+				position: relative;
+			}
+			.left {
+
+				display: inline-block;
+				position: relative;
+				text-align: left;
+				font-size: 1rem;
+			}
+			.table {
+				display: inline-block;
+				margin-left: 5px;
+				margin-right: 5px;
+				width: 30%;
+				position: relative;
+				text-align: center;
+				border-radius: 5px;
+				font-size: 1rem;
+			}
+			.flecha-down {
+				width: 0;
+				height: 0;
+				border-left: 7px solid transparent; /* izquierda flecha */
+				border-right: 7px solid transparent; /* derecha flecha */
+				font-size: 0;
+				line-height: 0;
+				margin-left:auto;
+				margin-right:auto;
+			}
+			.flecha-down-big {
+				width: 0;
+				height: 0;
+				border-left: 14px solid transparent; /* izquierda flecha */
+				border-right: 14px solid transparent; /* derecha flecha */
+				font-size: 0;
+				line-height: 0;
+				margin-left:auto;
+				margin-right:auto;
+			}
+			.line-grey {
+				height: 1px;
+				background-color: grey;
+
+			}
+			.body-end1 {
+				background-color: rgb(75, 119, 180);
+				color: white;
+				text-align: left;
+				text­align: justify;
+				padding: 3px 40px;
+				margin-top: 15px;
+				border-radius: 5px;
+			}
+			.body-end2 {
+
+				color: black;
+				text-align: left;
+				text­align: justify;
+				padding: 0 40px;
+			}
+			.color {
+				color: white;
+				border-radius: 5px 5px 0 0;
+
+			}
+			.container {
+				font-size: 10px;
+			}
+
+			.img-logo-imagen1 {
+				margin-left: 0;
+				width: 15%;
+				position: relative;
+			}
+
+			.img-logo-imagen2 {
+				float: right;
+				width: 38%;
+			}
+			.encabezado {
+				/* margin-top: 25px; */
+				margin-left: auto;
+				margin-right: auto;
+			}
+			.col-6 {
+				width: 50%;
+				margin-top: 10px;
+				display: inline-block;
+			}
+
+			.titulo {
+				margin-top: 15px;
+				text-align: center;
+				font-size: 20px;
+			}
+			.image-qr {
+				margin-top: 25px;
+				width: 200px;
+				height: 200px;
+
+			}
+			.texto {
+				font-size: 15px;
+				text-align: center;
+			}
+			.texto-izquieda {
+				margin-top: 3px;
+				text-align: left;
+			}
+
+			.col-6b {
+				font-size: 13px;
+				width: 50%;
+				display: inline-block;
+			}
+			.col-4b {
+				margin-top: 5px;
+				font-size: 15px;
+				width: 25%;
+				display: inline-block;
+			}
+
+			.col-3b {
+				margin-top: 5px;
+				font-size: 15px;
+				width: 18%;
+				display: inline-block;
+			}
+			.fontLato {
+				font-family: 'Lato', sans-serif;
+			}
+			.fontMontserrat {
+
+				font-family: 'Montserrat', sans-serif;
+			}
+			.fontQuicksand {
+				font-family: 'Quicksand', sans-serif;
+				font-size: 1rem;
+
+			}
+			.light {
+				font-weight: 300;
+			}
+			.regular {
+				font-weight: 400;
+			}
+			.bold {
+				font-weight: 700;
+			}
+			.black {
+				font-weight: 900;
+			}
+			.manual-section-left {
+				display: inline-block;
+				width: 30%;
+				text-align: left;
+			}
+			.manual-section-right {
+				display: inline-block;
+				width: 65%;
+				text-align: right;
+			}
+			.manual-title-left {
+				display: inline-block;
+				width: 38%;
+				padding-right: 10px;
+				text-align: right;
+				border-right: 2px solid #E8E8E8;
+				height: 150px
+			}
+			.manual-title-right {
+				display: inline-block;
+				width: 40%;
+				text-align: left;
+				padding-bottom: -20px;
+			
+				height: 150px;
+			}
+			.header-left {
+				display: inline-block;
+				text-align: left;
+				width: 400px;
+			}
+			.header-right {
+				display: inline-block;
+				text-align: right;
+				width: 400px;
+			}
+			.automatic-section-left {
+				display: inline-block;
+				width: 65%;
+				text-align: left;
+			}
+			.automatic-section-right {
+				display: inline-block;
+				width: 30%;
+				text-align: right;
+				margin-top: -10px;
+				height: 100px
+			}
+			.automatic-section-bubble {
+				width:140px; 
+				height: 100%; 
+				float:left; 
+				line-height: 120px;
+				font-weight: 500;
+			}
+			
+			.subsection {
+				page-break-inside: avoid !important;
+			}
+			.section {
+				page-break-after: always !important;
+			}
+			.result-header{
+				page-break-before: always !important;
+			}
+			@media print{
+				
+				.section {
+					page-break-after: always !important;
+				}
+
+				.subsection {
+				page-break-inside: avoid !important;
+				}
+				.result-header{
+					page-break-before: always !important;
+				}
+			}
+			
+			.automatic-section{
+				background-color: #FFFFFF;
+			}
+			
+			.section .manual-title-right p {
+				margin: 20px;
+				padding: 20px;
+				font-family: 'Lato', sans-serif;
+				color: #525252;
+				font-size: 30px;
+				font-weight: bold;
+			}
+
+			.section .manual-title-right p::first-line {
+				font-weight: 300;
+			}
+
+			.border-result{
+                border-top: solid #F4F4F4 1px;
+                width: 120%;
+            }
+
+			.bibliography {
+				font-family: 'Quicksand', sans-serif;
+				font-style: italic;
+				font-size: 16px;
+			}
+			.bibliography-title {
+				font-family: 'Quicksand', sans-serif;
+				font-weight: 600;
+				font-size: 16px;
+
+			}
+
+		</style>
+	</head>
+	<body>
+		
+
+		{% for result_section in result_report.resultSections|sort((a, b) => a.orderNumber >= b.orderNumber) %}
+			<div class="section">
+				<div style="display:flex;top:20px;vertical-align:middle" class="result-header">
+					<div class="manual-title-left">
+						<img style="height: 150px;" src="{{absolute_url(asset('uploads/section/images/'~result_section.section.path))}}">
+					</div>
+	
+					<div class="manual-title-right">
+						<div class="light" style="position: relative;top:-25%;">
+							<p><strong>{{result_section.section.title}}</strong></p>
+						</div>
+					</div>
+				</div>
+				{% for result_subsection in result_section.resultSubsections %}
+					{% if not result_subsection.subsection.isAutomatic %}
+					
+						<div class="fontLato subsection">
+							<div class="fc4">
+								<div class="border-result">
+								</div>
+								<center>
+									<div class="result">
+										<span>Tus resultados</span>
+									</div>
+								</center>
+								<br>
+								<div>
+									<div class="row">
+										<div class="manual-section-left">
+											<div class="black fc10" style="font-size:24px; font-family:keepcalm">
+												<h2>
+												{{result_subsection.subsection.title}}
+												</h2>
+											</div>
+											{# <div class="black fc10" style="font-family:keepcalm; font-size:24px">
+												<span>{{result_subsection.subsection.title}}</span>
+											</div> #}
+											<div class="fontMontserrat">
+												<span class="bold fc11">
+													Resultado descriptivo
+												</span>
+												<p class="regular fc12" style="padding:0px; margin: 0px;">
+													{% for  answer in  result_subsection.answers %}
+														<strong>{{'Answer'|trans}}</strong>
+														{{answer[0]}}
+													{% endfor %}
+												</p>
+											</div>
+										</div>
+										<div class="manual-section-right">
+	
+											<div class="table fc2 " style="float:right">
+												<div class="color fc8 bold" style="padding:5px;">GEN</div>
+											
+												<div style="border-top:7px solid rgb(254,169,0)" class="flecha-down">
+
+												</div>
+											
+												<div>
+													{% for result_marker in result_subsection.resultMarkers %}
+														<div style="margin-top:5px;margin-bottom:5px"><span style="color:#606060"><span style="color:#606060">{{result_marker.gene}}</span></div>
+														<div class="line-grey"></div>
+													{% endfor %}
+												</div>
+											</div>
+	
+											<div class="table fc2">
+												<div class="color fc9 bold" style="padding:5px;">MARCADOR</div>
+											
+												<div style="border-top:7px solid rgb(75,119,180)" class="flecha-down">
+													
+												</div>
+												
+												<div>
+													{% for result_marker in result_subsection.resultMarkers %}
+														<div style="margin-top:5px;margin-bottom:5px"><span style="color:#606060">{{result_marker.marker}}</span></div>
+														<div class="line-grey"></div>
+													{% endfor %}
+
+												</div>
+
+											</div>
+	
+											<div class="table fc2 ">
+												<div class="color fc7 bold " style="padding:5px;">GENOTIPO</div>
+											
+													<div style="border-top:7px solid rgb(45,171,226)" class="flecha-down"></div>
+												
+													<div>
+														{% for result_marker in result_subsection.resultMarkers %}
+															<div style="margin-top:5px;margin-bottom:5px"><span style="color:#606060"><span style="color:#606060">{{result_marker.genotype}}</span></div>
+															<div class="line-grey"></div>
+														{% endfor %}
+
+													</div>
+
+													</div>
+
+												</div>
+
+											</div>
+											<div class="fontQuicksand">
+												<div class="body-end1">
+													{% for  answer in  result_subsection.answers %}
+														{{answer[1]|raw}}
+													{% endfor %}
+												</div>
+												<div style="border-top:14px solid rgb(75,119,180)" class="flecha-down-big"></div>
+												<div class="body-end2">
+													<p>	
+														{% if result_section.note %}
+															<strong>{{'Note'|trans}}
+															<br>
+															</strong>{{result_section.note|raw}}
+														{% endif %}
+														<br>
+														{% if result_subsection.bibliography %}
+			      											<span class="bibliography-title">{{'Bibliography'|trans}}</span>
+															<br>
+															<span class="bibliography">{{result_subsection.bibliography|raw}}</span>
+														{% endif %}
+														
+													</p>
+													{#Siguiendo estas recomendaciones tendrás una mayor posibilidad de beneficiar a tu salud y mantener un peso corporal óptimo.</p> #}
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					{% endif %}
+	
+					{% if result_subsection.subsection.isAutomatic %}
+					{% for result_marker in result_subsection.resultMarkers %}
+						<div class="fontLato subsection automatic-section">
+							<div class="fc4" style="background-color:white">
+								<div class="border-result">
+								</div>
+								<center>
+									<div class="result">
+										<span>Tus resultados</span>
+									</div>
+								</center>
+								<br>
+								<div class="container">
+									<div class="row" style="display:flex">
+										
+											<div class="black fc10 fontLato" style="font-size:16px">
+												<h2>
+												{{result_subsection.subsection.title}}
+												</h2>
+											</div>
+											<div style="float:left;">
+												<div>
+													<div style="
+													border: 1px solid none;
+													height: 220px;
+													background-image: url('{{absolute_url(asset('assets/img/burbujas.png'))}}');
+													color:white;top:-140px;
+													display:inline-block; text-align:center;
+													 background-size: contain; background-repeat: 
+													 no-repeat; background-size: cover;">
+														<div class="automatic-section-bubble" style="padding-right: 10px;width:130px;">
+															<span style="font-family: 'Montserrat', sans-serif; font-size:16px; padding-top:10px;">{{result_marker.gene}}</span>
+														</div>
+														<div class="automatic-section-bubble">
+															<span style="font-family: 'Montserrat', sans-serif; font-size:16px; margin-top:10px;">{{result_marker.marker}}</span>
+														</div>
+														<div class="automatic-section-bubble">
+															<span style="font-family: 'Montserrat', sans-serif; font-size:16px; margin-top:10px;">{{result_marker.genotype}}</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div style="float:right; border: 1px solid none;">
+												<div style="width:300px; border: 1px solid none;">
+													<div>
+														<h3>
+														
+															{% if result_marker.answers[0] is defined %}
+																{{result_marker.answers[0]|raw}}
+															{% endif %}
+														</h3>
+													</div>
+													<img src="{{absolute_url(asset('assets/img/horizontal-bar.png'))}}" alt="imd demo" width="250"/>
+														{#<img src="{{absolute_url(asset('assets/img/horizontal-bar.png'))}}" style="transform: rotate(180deg)" alt="imd demo" width="250"/>#}
+													<div>
+														<br>
+														<strong>{{'Descriptive Result'|trans}}</strong>
+														<br>
+
+														<p>
+															{% if result_marker.answers[1] is defined %}
+																{{result_marker.answers[1]|raw}}
+															{% endif %}
+														</p>
+														
+														
+													</div>
+
+												</div>
+											</div>
+											<div style="clear:both"></div>
+											
+											{% if result_section.note %}
+												<strong>{{'Note'|trans}}:</strong>
+												<br>
+												<br>
+												{{result_section.note|raw}} 
+												<br>
+												<br>
+											{% endif %}
+											
+											{% if result_marker.bibliography %}
+												{# <strong>{{'Bibliography'|trans}}:</strong> #}
+      											<span class="bibliography-title">{{'Bibliography'|trans}}</span>
+												<br>
+												<br>
+												{# {{result_marker.bibliography|raw}} #}
+												<span class="bibliography">{{result_marker.bibliography|raw}}</span>
+											{% endif %}
+											
+											<div style="clear:both"></div>
+
+										
+										<div style="clear:both"></div>
+
+
+									</div>
+
+								</div>
+
+
+							</div>
+						</div>
+
+						<br>
+						{% endfor %}
+					{% endif %}
+	
+	
+				{% endfor %}
+			{% endfor %}
+			</div>
+
+			</body>
+		</html>
+	</body>
+</html>

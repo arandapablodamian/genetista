@@ -1,0 +1,30 @@
+easy_admin:
+    entities:
+        Answer:
+            class: App\Entity\Answer
+            list:
+                title: "Respuestas"
+                actions:
+                    - { name: 'new', label: 'Nueva Respuesta'}
+                fields:
+                    - { property: 'id', label: 'ID' }
+                    - { property: 'answer', label: 'Respuesta'  }
+                    - { property: 'descriptiveAnswer', label: 'Respuesta descriptiva'}
+            form:
+                title: "Nuevo template de Respuesta"
+                fields:
+                    - 
+                        property: 'answer'
+                        label: 'Respuesta'
+                    -
+                        property: 'descriptiveAnswer'
+                        label: 'Respuesta descriptiva'
+            show:
+                fields:
+                    - { property: 'id', label: 'ID' }
+                    - 
+                        property: 'answer'
+                        label: 'Respuesta'
+                    -
+                        property: 'descriptiveAnswer'
+                        label: 'Respuesta descriptiva'

@@ -1,0 +1,25 @@
+{% extends '@EasyAdmin/default/layout.html.twig' %}
+
+{% block content %}
+<div class="container">
+    <h2>Reportes Generados</h2>
+    <hr />
+    <ul class="list-group mb-16">
+
+    {% for result_report in process.clientReports %}
+        {# <a href="{{path('download_report',{'id':result_report.id})}}">Download report</a> #}
+    {# <hr> #}
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        Reporte del paciente {{result_report.client}}
+        <a href="{{path('download_report',{'id':result_report.id})}}"><i class="fa fa-download" aria-hidden="true"></i></a>
+      </li>
+
+    {% endfor %}
+    </ul>
+    {# <div class="mt-16" style="margin-top:16px; float: right;">
+    <a href="#" class="btn btn-info btn-lg ">
+        <span class="fa fa-download"></span> Download
+    </a>
+    </div> #}
+<div>
+{% endblock %}

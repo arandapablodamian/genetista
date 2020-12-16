@@ -1,0 +1,45 @@
+easy_admin:
+    entities:
+        ReportGenerator:
+            class: App\Entity\ReportGenerator
+            controller: App\Controller\ReportProcessController
+#            list:
+ #               title: "report_generator.title"
+  #              actions:
+   #                 - { name: 'new', label: 'nuevoReporte'}
+    #            fields:
+     #               - { property: 'id', label: 'ID' }
+      #              - { property: 'title', label: 'Título'  }
+            templates:
+                new: 'report_generator/new.html.twig'
+            form:
+                title: "report_generator.title"
+                fields:
+                    - { type: 'group',columns: 6, css_class: 'w-100' }
+                    -
+                      property: 'file'
+                      type: 'vich_file'
+                      label: 'report_generator.form.fileMarkers'
+                      css_class: 'col-md-12' 
+                    - 
+                      property: 'report'
+                      label: 'report_generator.form.report'
+
+                    - { type: 'group',columns: 6, css_class: 'w-100' }
+                    - 
+                      property: 'clients'
+                      help: 'Press , to separate the client name.'
+                      label: 'report_generator.form.clients'
+                      type: text
+                      type_options: { attr: { data-role: tagsinput }}
+                    -
+                        property: 'reportLogos'
+                        type: 'collection'
+                        type_options:
+                            label: 'report_generator.form.clients_logos'
+                            entry_type: App\Form\ReportLogosType
+                            allow_delete: true
+                            allow_add: true
+                            by_reference: false
+                  
+                    

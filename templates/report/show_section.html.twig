@@ -1,0 +1,58 @@
+{% if value %}
+	<div id="accordion">
+		{% for sectionReport in value %}
+			<div class="card">
+				<div class="card-header" id={{["heading", sectionReport.id]|join}}>
+					<h5 class="mb-0">
+						<button class="btn btn-link" data-toggle="collapse" data-target={{["#","collapse", sectionReport.id]|join}} aria-expanded="false" aria-controls={{["collapse", sectionReport.id]|join}}>
+							{{sectionReport.orderNumber}}
+							-
+							{{sectionReport.section}}
+						</button>
+					</h5>
+				</div>
+
+				<div id={{["collapse", sectionReport.id]|join}} class="collapse show" aria-labelledby={{["heading", sectionReport.id]|join}} data-parent="#accordion">
+					{% for subsection in sectionReport.section.subsections %}
+						<div class="card-body row">
+							<div class="col-lg-4">
+								<img class="img-fluid img-thumbnail" src={{["/uploads/section/images/",sectionReport.section.path]|join}} alt="section-logo" width="250" height="auto"/>
+							</div>
+							<div class="col-lg-8">
+								<strong>Título
+								</strong>
+								<span>{{subsection.title}}</span>
+								<br/>
+								<strong>Marcadores
+								</strong>
+								<span>{{subsection.markers}}</span>
+								<br/>
+								<strong>Bibliografía
+								</strong>
+								<p>{{subsection.bibliography|raw}}</p>
+								<br/>
+								<strong>Respuestas</strong>
+								<div class="mb-4 ml-4 mr-4 mt-0">
+									{% for ans in subsection.answers %}
+										<strong>Respuesta
+										</strong>
+										<p>{{ans.answer}}</p>
+										<br/>
+										<strong>Respuesta descriptiva
+										</strong>
+										<p>{{ans.descriptiveAnswer}}</p>
+										<br/>
+									{% endfor %}
+
+								</div>
+							</div>
+						</div>
+            <hr style="margin: 0px 100px 50px 100px"/>
+					{% endfor %}
+
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+
+{% endif %}

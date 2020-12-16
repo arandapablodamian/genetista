@@ -1,0 +1,95 @@
+reports: Reportes
+report: Reporte
+User: Usuario
+Users: Usuarios
+Username: Usuario
+Password: Contraseña
+Login: Ingresar
+user_ea:
+  form:
+    username: Usuario
+    password: 'Contraseña'
+    password_confirmation: 'Confirmar Contraseña'
+report_ea:
+  form:
+    title: Título del Reporte
+report_generator:
+  form:
+    clients: Clientes
+    clients_help: Los pacientes deberán ingresarse en el mismo roden en que se encuentran en las columnas del archivo.
+    fileMarkers: Adjuntar Archivo Marcadores
+    report: Adjuntar archivo Marcadores
+    client_text_up: Los pacientes deberán ingresarse en el mismo orden en que se encuentran en las columnas del archivo.
+    clients_logos: Logos de reportes
+  title: Generar Reporte
+  import:
+    file_label: Importar Archivo
+    file_help: ''
+    submit: Procesar
+  report_template:
+    label: Seleccione Reporte
+  clients:
+    label: Ingrese nombre de los clientes
+    help: ''
+Reset your password: Resetear contraseña
+Enter your email address and we we will send you a link to reset your password: Ingresa tu mail para enviarte el link para resetear tu contraseña
+Send password reset email: Aceptar
+To reset your password, please visit the following link: Para resetear tu contraseña por favor sigue el siguiente link
+Hi!: Hola
+This link will expire in: Este link expirará en 
+hour(s): hora(s)
+Password Reset Email Sent: Correo de reseteo de contraseña enviado
+An email has been sent that contains a link that you can click to reset your password. This link will expire in: Se ha enviado un mail que contiene el link de reseteo de contraseña . EL link expirará en 
+If you don't receive an email please check your spam folder or: Si el correo no figura en su casilla de correo por favor revise su spam o
+try again: vuelva a intentarlo
+Forget my password: Olvide mi contraseña
+New password: Nueva contraseña
+Repeat Password: Repite la nueva contraseña
+Reset password: Reiniciar Contraseña
+result_ea:
+  form:
+    type: Tipo
+    gene: Gen
+    marker: Marcador
+    genotype: Genotipo
+    result: Resultado
+    descriptiveResult: Resultado Descriptivo
+    Biography: Biografía
+    note: Nota
+section_ea:
+  form:
+    icon: Ícono
+Press , to separate the marker.: Presiona , para separar el marcardor ingresado.
+Press , to separate the client name.: Presiona , para separar el nombre de cliente ingresado.
+Order Number: Nro. de orden
+Sections: Secciones
+Section: Sección
+form.label.delete: Eliminar imágen
+Some errors ocurred in the processing of the reports.Please try again.: Algunos errores ocurrieron en el procesamiento del reporte. Por favor vuelva a intentarlo
+Some errors ocurred in the processing of the reports in the step 2.Please try again: Algunos errores ocurrieron en el procesamiento del reporte en el paso 2. Por favor vuelva a intentarlo
+Aditional Text: Texto Adicional
+Answer: Respuesta
+Descriptive Answer: Respuesta Descriptiva
+Bibliography: Bibliografía
+Answers: Respuestas
+Genotypes: Genotipos
+Gen: Gen
+Markers: Marcadores
+Section type: Tipo de Sección
+Subsection: Subsección
+Next Report: Siguiente Reporte
+Client: Clientes
+Report: Reporte
+marker_not_found: Marcardor no encontrado. Marcador
+head_file_empty: Error de formato del archivo Text
+client_empty: Lista de clientes vacía
+number_clients_size: Error cantidad de clientes no coincide con la del txt.
+Some errors ocurred in the processing of the reports in the step 2.Please try again.: Algunos errores ocurrieron durante el procesamiento del archivo. Por favor intente de nuevo
+marker_not_found_import: Marcador no encontrado en los datos importados
+Select anwser and descriptive answer: Seleccione una respuesta y respuesta descriptiva
+Automatic: Automático
+marker: Marcador
+line: Linea
+Note: Nota
+Descriptive Result: Resultado descriptivo
+subsection_title: Titulo de la subsección

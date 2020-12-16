@@ -1,0 +1,27 @@
+easy_admin:
+    entities:
+        ReportGeneratorSecond:
+            class: App\Entity\ReportGeneratorSecond
+            disabled_actions: [delete','edit']
+            # form:
+            #     title: "report_generator.title"
+            #     fields:
+            #         - { type: 'group',columns: 6, css_class: 'w-100' }
+            #         -
+            #             property: 'file'
+            #             type: 'vich_file'
+            #             label: 'report_generator.form.fileMarkers'
+            #             css_class: 'col-md-12' 
+            #         - 
+            #             property: 'report'
+            #             label: 'report_generator.form.report'
+
+            #         - { type: 'group',columns: 6, css_class: 'w-100' }
+            #         - 
+            #             property: 'clients'
+            #             help: 'Press , to separate the client name.'
+            #             label: 'report_generator.form.clients'
+            #             type: text
+            #             type_options: { attr: { data-role: tagsinput }}
+                    
+                    

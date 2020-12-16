@@ -1,0 +1,85 @@
+easy_admin:
+    design:
+        assets:
+            css:
+                - 'assets/tagsinput/css/tagsinput.css'
+                - 'assets/bs-tags/bootstrap-tagsinput.css'
+                - 'assets/smart-wizard/css/smart_wizard.css'
+                - 'assets/smart-wizard/css/smart_wizard_theme_arrows.css'
+                - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css
+                - assets/css/select2.css
+                - assets/css/ct.css
+                - assets/css/custom.css
+            js:
+                # - 'assets/tagsinput/js/tagsinput.js'
+                - assets/js/popper.js
+                - assets/js/bootstrap.js
+                - assets/js/app-style-switcher.js
+                - assets/js/perfect-scrollbar.jquery.min.js
+                - assets/js/feather.js
+                - assets/js/sidebar.js
+                - assets/js/custom.js
+                - assets/js/custom-backend.js
+                - 'assets/bs-tags/bootstrap-tagsinput.js'
+                - 'assets/smart-wizard/js/jquery.smartWizard.js'
+#                 - 'frontend/js/select2-entity.js'
+#                 - 'frontend/js/smartsupp&v1.js'
+#                 - 'frontend/js/smartsupp-config.js'
+#                 - 'backend/ckeditor/ckeditor.js'
+#                 - 'backend/ckeditor/custom-ckeditor.js'
+
+#                 #- 'bundles/easyadmin/bootstrap-all.js'
+#         templates:
+#             layout: 'default/layout.html.twig'
+#             list: 'default/list.html.twig'
+#             field_association: 'default/field_association.html.twig'
+#             label_null: 'default/label_null.html.twig'
+#             field_string: 'default/field_string.html.twig'
+#             menu: 'menu.html.twig'
+        form_theme: 
+                  - 'form/fields.html.twig'
+                  - '@EasyAdmin/form/bootstrap_4.html.twig'
+                  - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
+        # menu:
+        #     # - { label: 'Página principal', route: 'easyadmin', default: true }
+        #     # SECCION DE DESIGNACIONES
+        #     # - label: 'Nuevo Procesamiento'
+        #       # children:
+        #       #   - { entity: 'Report', label: 'Reporte' }
+        #       #   - { entity: 'Section', label: 'Sección'}
+        #     # - { route: 'report_generator', label: 'report_generator.title' }    
+        #     - label: 'Plantillas'
+        #       icon: 'tasks'
+        #       children:
+        #         - { entity: 'Report', label: 'Reporte' , icon: 'users', }
+        #         - { entity: 'Section', label: 'Sección', icon: 'users' }
+        #         - { entity: 'Marker', label: 'Marcador', icon: 'users' }
+        #         - { entity: 'Answer', label: 'Respuesta', icon: 'users' }
+        #     - label: 'User'
+        #       icon: 'users'
+        #       children:
+        #         - { entity: 'User', , icon: 'user'}
+        menu:
+            # - { label: 'Página principal', route: 'easyadmin', default: true }
+            # SECCION DE DESIGNACIONES
+            - label: 'Nuevo Procesamiento'
+              # children:
+              #   - { entity: 'Report', label: 'Reporte' }
+              #   - { entity: 'Section', label: 'Sección'}
+            - { entity: 'ReportGenerator', label: 'report_generator.title', icon: 'clipboard', params: { action: 'new' }}    
+
+            - label: 'Administración'
+              
+            - label: 'Plantillas'
+              children:
+                - { entity: 'Report', label: 'Reporte', icon: 'tasks' }
+                - { entity: 'Section', label: 'Sección', icon: 'tasks' }
+                - { entity: 'Subsection', label: 'Subsección', icon: 'tasks' }
+                - { entity: 'Answer', label: 'Respuesta', icon: 'tasks' }
+                - { entity: 'Result', label: 'Información(para procesamiento automático)' }
+                - { route: 'ruta_paso3', label: 'step3' }
+            - label: 'User'
+              icon: 'users'
+              children:
+                - { entity: 'User', label: 'Users', icon: 'user'}
+

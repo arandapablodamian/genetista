@@ -1,0 +1,26 @@
+easy_admin:
+    entities:
+      User:
+        class: App\Entity\User
+        list:
+          title: 'Users'
+          fields:
+            - { property: 'username', label: 'user_ea.form.username'}
+        show:
+          title: 'User'
+          fields:
+            - { property: 'username', label: 'user_ea.form.username'}
+            - { property: 'email', label: 'Email'}
+        form:
+          title: 'User'
+          fields:
+              - { type: 'group' }
+              - { property: 'username', label: 'user_ea.form.username'}
+              - { property: 'email' ,label: 'Email'}
+              -
+                { property: 'plainPassword', type: 'repeated',
+                type_options: { type: Symfony\Component\Form\Extension\Core\Type\PasswordType,
+                first_options: {label: 'user_ea.form.password', attr: { autocomplete: "new-password"}},
+                second_options: {label: 'user_ea.form.password_confirmation', attr: { autocomplete: "new-password"}},
+                invalid_message: 'provider_ea.form.password_repeated_invalid'},
+                css_class: 'col-md-6' }

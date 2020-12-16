@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{'Reset your password'|trans}}{% endblock %}
+
+{% block body %}
+    <div class="container" > 
+        <div class="row">
+            <div class="col-4">
+
+            </div>
+            <div class="col-4">
+                <div class="card" style="width: 25rem;margin-top:50%;">
+                    <img class="card-img-top" src="{{asset('assets/img/logo.png')}}" alt="logo">
+                    <div class="card-body">
+                        <p>{{'An email has been sent that contains a link that you can click to reset your password. This link will expire in'|trans}} {{ tokenLifetime|date('g') }} {{'hour(s)'|trans}}.</p>
+                        <p>{{"If you don't receive an email please check your spam folder or"|trans}} <a href="{{ path('app_forgot_password_request') }}">{{'try again'|trans}}</a>.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

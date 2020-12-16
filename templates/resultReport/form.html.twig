@@ -1,0 +1,200 @@
+{% extends '@EasyAdmin/default/layout.html.twig' %}
+
+
+
+{% block content %}
+    <style>
+        .select2{
+            max-width:700px
+        }
+        .header-table{
+            background-color: #2384E4;
+            color:white;
+        }
+    </style>
+    <div class="content">
+        <div class="m-5">
+            <h2>
+                <strong>{{'Report'|trans}}:</strong> {{result_report.reportGeneratorSecond.report}}
+                <br>
+                <br>
+                <strong>{{'Client'|trans}}:</strong> {{result_report.client}}
+            </h2>
+            <br>
+            <hr>
+            <br>
+            <div>
+
+                {% if result_report.reportLogo %}
+                        {% if result_report.reportLogo.showLogoJD %}
+                            <h6><strong>Mostrar logo de Jorge Dotto:</strong>  Si</h6>
+                        {% else %}
+                            <h6><strong>Mostrar logo de Jorge Dotto:</strong>  No</h6> 
+
+                        {% endif %}
+                    
+
+                        {% if result_report.reportLogo.path %}
+                            <h6><strong> Logo del Cliente:</strong>
+                                <br>
+                                <br>
+                                <img style="max-height: 100px;" src="{{asset('/uploads/section/images/'~ result_report.reportLogo.path)}}" class="img-fluid" alt="">
+                                <br>
+                        {% endif %}
+                {% else %}
+                        <h6><strong>Mostrar logo de Jorge Dotto:</strong>  Si</h6>
+                        <br>
+                {% endif %}
+                    
+              
+            </div>
+            <hr>
+         
+            <form action="{{path('change_report_result')}}" method="POST">
+                <input type="hidden" name="process_report_id" value="{{result_report.reportGeneratorSecond.id}}">
+                <div style="float:right;">
+                    <button class="btn btn-info" type="submit">
+                        {{'Next Report'|trans}}
+                    </button>
+                    
+                </div>
+                <br><br><br>
+                
+                <div id="accordion">
+                    {% for  resultSection in  result_report.resultSections|sort((a, b) => a.orderNumber >= b.orderNumber) %}
+                        {% set only_automatic = true %}
+                        <div class="card">
+                            <div class="card-header" id="headingOne"  style="background-color:#004054">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" type='button' style="color:white;" data-toggle="collapse" data-target="#report_section_{{resultSection.id}}" aria-expanded="true" aria-controls="collapseOne">
+                                    <div>
+                                        <strong><h2>{{'Section'|trans}}: {{resultSection.section.title}}</h2></strong> 
+                                    </div>
+                                </button>
+                            </h5>
+                            </div>
+                        
+                            <div id="report_section_{{resultSection.id}}" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body">
+                                    <br>
+                                    <div class="col-lg-4">
+                                        <img class="img-fluid img-thumbnail" src={{["/uploads/section/images/",resultSection.section.path]|join}} alt="section-logo" width="250" height="auto"/>
+                                    </div>
+                                    <br><br>
+                                    <div class="row">
+                                        {% if resultSection.resultSubsections is empty%}
+                                 
+                                            <div class="col-12">
+                                                <strong>
+                                                    No se encontraron coincidencias de subsecciones para esta sección en el archivo (txt) ingresado
+                                                </strong>
+                                            </div>
+                                        {% else %}
+                                     
+                                            {% for  resultSubsection in resultSection.resultSubsections %}
+                                                
+                                                {% if not resultSubsection.subsection.isAutomatic %}
+                                                    {% set only_automatic = false %}
+                                                    <div class="col-12">
+                                                        <div>
+                                                            <strong><h2>{{'Subsection'|trans}}: {{resultSubsection.subsection.title}}</h2></strong>
+                                                            <br>
+                                                            <strong><h5>{{'Section type'|trans}}: {% if resultSubsection.subsection.isAutomatic %}{{'Automatic'|trans}} {% else %} Manual {% endif %} </h5></strong>
+                                                            <br>
+                                                        </div>
+                                                    </div>
+                                                
+                                                    <div class="col-12">
+                                                        <table class="table table-stripped table-responsive">
+                                                            <thead class="header-table">
+                                                                <th>
+                                                                    {{'Markers'|trans}}
+                                                                </th>
+                                                                <th>
+                                                                    {{'Gen'|trans}}
+                                                                </th>
+                                                                <th>
+                                                                    {{'Genotypes'|trans}}
+                                                                </th>
+                                                                <th>
+                                                                    {{'Bibliography'|trans}}
+                                                                </th>                                            
+                                                            </thead>
+                                                            <tbody>
+                                                                {% for result_marker in resultSubsection.resultMarkers %}
+                                                                    <tr>
+                                                                        <td>
+                                                                            {{result_marker.marker}}
+                                                                        </td>
+                                                                        <td>
+                                                                            {{result_marker.gene}}
+                                                                        </td>
+                                                                        <td>
+                                                                            {{result_marker.genotype}}
+                                                                        </td>
+                                                                        <td>
+                                                                            {{result_marker.bibliography|raw}}
+                                                                        </td>
+                                                                    </tr>
+                                                                    
+                                                                {% endfor %}
+                                                                    <tr>
+                                                                        <td colspan="4">
+                                                                            <h6>
+                                                                                {{'Answers'|trans}}
+                                                                            </h6>
+                                                                            <select  class="select2" name="answer_{{resultSubsection.id}}" id="answer_{{resultSubsection.id}}" required="required">
+                                                                                {% for  answer in  resultSubsection.answers %}
+                                                                                    <option value="">{{'Select anwser and descriptive answer'|trans}}</option>
+                                                                                    <option value="{{answer[0]}}|{{answer[1]}}" >
+                                                                                        <strong>{{'Answer'|trans}}</strong>: {{answer[0]}}|<strong>{{'Descriptive Answer'|trans}}: </strong>{{answer[1]}} 
+                                                                                    </option>
+                                                                                {% endfor %}
+                                                                            </select>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td colspan="4">
+                                                                            <h6>
+                                                                                {{'Aditional Text'|trans}}
+                                                                            </h6>
+                                                                            <br>
+                                                                            <textarea name="aditional_text_{{resultSubsection.id}}" id="" cols="80" rows="5">
+                                                                                
+                                                                            </textarea>
+                                                                        </td>
+                                                                    </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                    {% if only_automatic %}
+                                        <h4>
+                                            En esta sección solo existen subsecciones automáticas
+                                        </h4>
+                                    {% endif %}
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+                </div>
+            </form>
+
+        </div>
+        <hr>
+
+    </div><!-- .content -->
+{% endblock %}
+
+{% block body_javascript %}
+    {{ parent() }}
+    {{ include('@EasyAdmin/default/includes/_select2_widget.html.twig') }}
+    <script>
+        $('.select2').select2()
+    </script>
+{% endblock %}

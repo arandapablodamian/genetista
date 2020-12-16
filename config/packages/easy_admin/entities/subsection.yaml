@@ -1,0 +1,65 @@
+easy_admin:
+    entities:
+        Subsection:
+            class: App\Entity\Subsection
+            list:
+                actions:
+                    - { name: 'new', label: 'Nueva Subsección'}
+                title: "Subsecciones"
+                fields:
+                    - { property: 'id', label: 'ID' }
+                    - { property: 'title', label: 'Título' }
+                    -
+                        property: 'isAutomatic'
+                        label: 'Automático'
+                        type: boolean
+                    - { property: 'markers', label: 'Marcadores' }
+                    - { property: 'answers', label: 'Respuestas' }
+                    - { property: 'bibliography', label: 'Bibliografía'}                    
+            form:
+                title: "Nuevo template de Subsección"
+                fields:
+                    - 
+                        property: 'title'
+                        label: 'Titulo'
+                    -
+                        property: 'markers'
+                        label: 'Marcadores'
+                        type: text
+                        type_options: { attr: { data-role: tagsinput }}
+                        help: Press , to separate the marker.
+                    -
+                        property: 'isAutomatic'
+                        label: 'Procesamiento automático'
+                    -
+                        property: 'answers'
+                        label: 'Respuestas'
+                        css_class: 'js-markdown-select-is-manual'
+                    -
+                        property: 'bibliography'
+                        label: 'Bibliografia'
+                        type: 'fos_ckeditor'
+                        help: 'Si completa este campo, se utilizara en el reporte generado no tomando en consideración el valor que está en el excel.'
+
+            show:
+                title: '%%entity_label%% - (#%%entity_id%%)'
+                fields:
+                    - { property: 'id', label: 'ID' }
+                    - 
+                        property: 'title'
+                        label: 'Titulo'                      
+                    -
+                        property: 'markers'
+                        label: 'Marcadores'
+                        type: text
+                        type_options: { attr: { data-role: tagsinput }}
+                    - 
+                        property: 'isAutomatic'
+                        label: 'Procesamiento manual'
+                    -
+                        property: 'answers'
+                        label: 'Respuestas'
+                    -
+                        property: 'bibliography'
+                        label: 'Bibliografia'
+

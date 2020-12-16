@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+		<style>
+            @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+			.footer {
+				height: 60px;
+                padding-left:50px;
+                width:100%;
+			}
+
+            .footer-text{
+                color: #C1C1C1;
+                font-size:16px;
+                padding-left:7px;
+                padding-bottom:4px;
+                margin-bottom: 4px;
+                font-family: 'Quicksand', sans-serif;
+            }
+
+            .footer-links{
+                color: #4790BD;
+                font-size:16px;
+                padding-left:7px;
+                font-family: 'Quicksand', sans-serif;
+            }
+
+            .border-footer{
+                border-top: solid #F4F4F4 1px;
+                width: 100%;;
+            }
+		</style>
+	</head>
+	<body>
+        {% if page is defined %}
+            {% set page = page + 1  %}
+        {% else %}
+            {% set page = 1%}
+        {% endif %}
+        <div class="border-footer">
+           
+        </div>
+        <div class="footer">
+            <div style="display:inline-block;width:25%;position: relative;top:-25%;">
+                <img src="{{absolute_url(asset('assets/img/Iconosfooter-52.png'))}}" width="20"/>
+                <span class="footer-text">contacto@jorgedotto.com
+                </span>
+            </div>
+            <div  style="display:inline-block;width:25%;align-items:center;position: relative;top:-25%;">
+                <img src="{{absolute_url(asset('assets/img/Iconosfooter-51.png'))}}" width="20"/>
+                <span class="footer-text">www.jorgedotto.com</span>
+            </div>
+            <div style="display:inline-block;width:25%;align-items:center;padding-top:5px;">
+                <div>
+                    <img style="vertical-align:middle" src="{{absolute_url(asset('assets/img/Iconosfooter-53.png'))}}" width="20"/>
+                    <span class="footer-links">@jorgedotto</span>
+                </div>
+                <div>
+                    <img style="vertical-align:middle" src="{{absolute_url(asset('assets/img/Iconosfooter-54.png'))}}" width="20"/>
+                    <span class="footer-links">@dottojorge</span>
+                </div>
+            </div>
+            <div style="display:inline-block;width:10%;right:0px;">
+                <div style="width:40px;height:40px; color:white; background-color:#13AFF0;padding-top:-10px;float: right;">
+                    <div class="page" style="text-align:center;padding-top:8px;">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+        function subst() {
+            var vars={};
+            var x= document.location.search.substring(1).split('&');
+            for(var i in x) {
+                var z=x[i].split('=',2);
+                vars[z[0]] = unescape(z[1]);
+                }
+                var x=['frompage','topage','page','webpage','section','subsection','subsubsection'];
+                for(var i in x) {
+                    var y = document.getElementsByClassName(x[i]);
+                    for(var j=0; j<y.length; ++j) {
+                        y[j].textContent = vars[x[i]];
+                    }
+                }
+            }
+            subst();
+
+        </script>
+    </body>
+</html>

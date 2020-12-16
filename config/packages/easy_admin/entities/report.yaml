@@ -1,0 +1,51 @@
+easy_admin:
+    entities:
+        Report:
+            class: App\Entity\Report
+            templates:
+                new: 'report/new.html.twig'
+                edit: 'report/edit.html.twig'
+            list:
+                title: "Reportes"
+                actions:
+                    - { name: 'new', label: 'Nuevo reporte'}
+                fields:
+                    - { property: 'id', label: 'ID' }
+                    - { property: 'title', label: 'Título'  }
+                    - { property: 'sectionReports', label: 'Secciones'}
+            form:
+                title: "Nuevo Reporte"
+                fields:
+                    - 
+                        property: 'title'
+                        label: 'report_ea.form.title'
+                    -
+                        property: 'sectionReports'
+                        type: 'collection'
+                        type_options:
+                            label: 'Secciones'
+                            entry_type: App\Form\SectionReportsType
+                            allow_delete: true
+                            allow_add: true
+                            by_reference: false
+            show:
+                title: "Información del Reporte"
+                fields:
+                    - { property: 'id', label: 'ID' }
+                    - 
+                        property: 'title'
+                        label: 'Titulo'
+                    -
+                        property: 'sectionReports'
+                        label: 'Secciones'
+                        template: 'report\show_section.html.twig'
+#                       
+#                        type: 'collection'
+                       # type_options:
+                      #      label: 'report_ea.form.sectionReports'
+                        #    entry_type: App\Form\SectionReportsType
+    #                        allow_delete: true
+     #                       allow_add: true
+      #                      by_reference: false
+            edit:
+                title: "Editar Reporte"

@@ -1,0 +1,11 @@
+{% use '@EasyAdmin/form/bootstrap_4.html.twig' %}
+
+{%- block form_rows -%}
+    <div class="row">
+        {% for child in form  %}
+            <div class="col-{{ child.vars.attr.columns|default('12') }}">
+                {{- form_row(child) -}}
+            </div>
+        {% endfor %}
+    </div>
+{%- endblock form_rows -%}

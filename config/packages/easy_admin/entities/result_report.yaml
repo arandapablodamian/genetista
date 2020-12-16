@@ -1,0 +1,21 @@
+easy_admin:
+    entities:
+        ResultReport:
+            class: App\Entity\ResultReport
+            disable_actions : ['remove','new','list']
+            # edit:
+            #     # title: "Nuevo template de reporte"
+            #     fields:
+            #         - 
+            #             property: 'client'
+            #             label: 'report_ea.form.client'
+            #             type: text
+            #         -
+            #             property: 'resultSections'
+            #             type: 'collection'
+            #             type_options:
+            #                 label: 'Secciones'
+            #                 entry_type: App\Form\ResultSectionType
+            #                 allow_delete: true
+            #                 allow_add: true
+            #                 by_reference: false

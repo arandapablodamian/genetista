@@ -1,0 +1,15 @@
+vich_uploader:
+    db_driver: orm
+    mappings:
+        files_process:
+            uri_prefix: '%app.path.files_process%'
+            upload_destination: '%kernel.project_dir%/public%app.path.files_process%'
+            namer:  vich_uploader.namer_uniqid
+        images_section:
+            uri_prefix: '%app.path.images_section%'
+            upload_destination: '%kernel.project_dir%/public%app.path.images_section%'
+            namer:  vich_uploader.namer_uniqid
+        client_section:
+            uri_prefix: '%app.path.client_section%'
+            upload_destination: '%kernel.project_dir%/public%app.path.client_section%'
+            namer:  vich_uploader.namer_uniqid
